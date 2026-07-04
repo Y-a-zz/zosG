@@ -11,7 +11,7 @@ const logoName = ref('')
 const data = ref('')
 const logo = ref<File | null>(null)
 const qrUrl = ref<string | null>(null)
-const err = ref<string | null>(null)
+const msg = ref<string | null>(null)
 
 function scrollToElement(id: string) {
   const el = document.getElementById(id);
@@ -44,30 +44,20 @@ async function generateQr() {
 
     qrUrl.value = URL.createObjectURL(response.data)
     setTimeout(() => {
-      console.log('QR is successfully generated !');
+      msg.value ='QR is successfully generated !';
       scrollToElement('qr');
     }, 100);
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.response) {
-        // Server gaf een fout terug (4xx of 5xx)
-        const blob = error.response.data
-        const text = await blob.text() // Lees de error als tekst
-        console.error('Serverfout:', text)
-        err.value = `Fout van server: ${text}`
+        msg.value = error.response.data
       } else {
-        // Verbindingsfout of iets anders
-        console.error('Verbindingsfout of onbekende fout:', error.message)
-        err.value = `Verbindingsfout: ${error.message}`
+        msg.value = `Verbindingsfout: ${error.message}`
       }
     } else {
-      console.error('Onbekende fout:', error)
-      err.value = `Er is een onbekende fout opgetreden.`
-      alert('Er is een onbekende fout opgetreden.')
-
+      msg.value = `Er is een onbekende fout opgetreden.`
     }
   } finally {
-    err.value = null
     wait.value = false
 
   }
@@ -119,8 +109,8 @@ async function generateQr() {
         </button>
       </form>
     </div>
-    <div v-if="err" class=" mt-6 text-red-50 text-center z-100 max-h-lvh p-6 flex flex-col items-center justify-center   bg-white/25 backdrop-blur-xl">
-      <strong  v-text="err"></strong>
+    <div v-if="msg" class=" mt-6 text-center z-100 max-h-lvh p-6 flex flex-col items-center justify-center   bg-white/25 backdrop-blur-xl">
+      <strong  v-text="msg"></strong>
     </div>
 
     <div id="qr" v-if="qrUrl" class=" mt-10 text-center z-1000  p-6 flex flex-col items-center justify-center   bg-white/25 backdrop-blur-xl">
