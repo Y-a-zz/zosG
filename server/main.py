@@ -18,7 +18,7 @@ app.add_middleware(
         "https://zos-g-git-main-zodiucs-projects.vercel.app",
         "https://zos-nb2nfek2j-zodiucs-projects.vercel.app",
     ],
-    allow_credentials=True,
+    allow_credentials=false,
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
@@ -26,7 +26,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "QR Code API is running"}
+    return {"message": "QR "}
 
 
 @app.post("/generate-qr/")
