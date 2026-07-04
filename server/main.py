@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 from fastapi import FastAPI, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from starlette.responses import JSONResponse
+from starlette.responses import StreamingResponse
 
 app = FastAPI()
 
@@ -25,7 +25,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "QR "}
+    return 'zosiuc.nl'
 
 
 @app.post("/generate-qr/")
@@ -95,12 +95,15 @@ async def generate_qr(data: str = Form(...), logo: UploadFile = None):
 
         draw.text(pos, text, font=font, fill="#46545f")
 
-        filename = f"qr_zosG.png"
+        buffer = BytesIO()
+        new_img.save(buffer, format="PNG")
+        buffer.seek(0)
 
-        new_img.save(filename)
-
-        respons = FileResponse(filename, media_type="image/png", filename="qr-code.png")
-        return respons
+        return StreamingResponse(
+            buffer,
+            media_type="image/png",
+            headers={"Content-Disposition": 'attachment; filename="qr-code.png"'}
+        )
     except Exception as e:
         print(e)
         return JSONResponse(content={"error": str(e)}, status_code=500)
