@@ -3,13 +3,14 @@ import { useI18n } from 'vue-i18n'
 import { watch } from 'vue'
 const { t, locale } = useI18n()
 
-import facebook from "/facebook.png"
-import x from "/twitter.png"
-import linkedIn from "/linkedin.png"
-import whatsapp from "/whatsapp.png"
-import email from "/mail.png"
-const zosiucLogo = "https://zosiuc.dev/og-image-nb.png"
+const facebook = "https://zosiuc.nl/social_media/facebook.png"
+const x = "https://zosiuc.nl/social_media/twitter.png"
+const linkedIn = "https://zosiuc.nl/social_media/linkedin.png"
+const whatsapp = "https://zosiuc.nl/social_media/whatsapp.png"
+const email = "https://zosiuc.nl/social_media/mail.png"
+const zosiucLogo = "https://zosiuc.nl/og-image-nb.png"
 
+const year = new Date().getFullYear()
 watch(locale, (newLocale) => {
   document.documentElement.dir = newLocale === 'ar' ? 'rtl' : 'ltr'
 }, { immediate: true })
@@ -67,7 +68,7 @@ watch(locale, (newLocale) => {
         </a>
       </div>
       <div>
-        <p class="items-center" >{{t('copyR')}}</p>
+        <p class="items-center" >© {{year}} {{t('copyR')}}</p>
       </div>
     </footer>
   </div>
