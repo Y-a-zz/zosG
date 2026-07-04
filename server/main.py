@@ -10,10 +10,9 @@ from starlette.responses import JSONResponse
 app = FastAPI()
 
 app.add_middleware(
-
     CORSMiddleware,
     allow_origins=[
-        "https://zosg.zosiuc.dev"
+        "https://zosg.zosiuc.dev",
         "http://localhost:5173",
         "https://zos-g-git-main-zodiucs-projects.vercel.app",
         "https://zos-nb2nfek2j-zodiucs-projects.vercel.app",
@@ -84,7 +83,7 @@ async def generate_qr(data: str = Form(...), logo: UploadFile = None):
         # Watermerk toevoegen
         draw = ImageDraw.Draw(new_img)
         try:
-            font = ImageFont.truetype("Roboto", 22)
+            font = ImageFont.truetype("Roboto-Regular.ttf", 22)
         except IOError:
             font = ImageFont.load_default()
 
