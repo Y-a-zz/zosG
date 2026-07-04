@@ -18,7 +18,7 @@ app.add_middleware(
         "https://zos-g-git-main-zodiucs-projects.vercel.app",
         "https://zos-nb2nfek2j-zodiucs-projects.vercel.app",
     ],
-    allow_credentials=false,
+    allow_credentials=True,
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
@@ -101,7 +101,6 @@ async def generate_qr(data: str = Form(...), logo: UploadFile = None):
         new_img.save(filename)
 
         respons = FileResponse(filename, media_type="image/png", filename="qr-code.png")
-        respons.headers["Access-Control-Allow-Origin"] = "https://zosg.zosiuc.dev"
         return respons
     except Exception as e:
         print(e)
