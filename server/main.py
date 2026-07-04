@@ -14,8 +14,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://zos-g.vercel.app",
-        "https://zos-qczu6ekj2-zodiucs-projects.vercel.app",
+        "https://zos-g-git-main-zodiucs-projects.vercel.app",
+        "https://zos-nb2nfek2j-zodiucs-projects.vercel.app",
         "https://zosg.zosiuc.dev"
     ],
     allow_credentials=True,
@@ -31,7 +31,6 @@ def root():
 
 @app.post("/generate-qr/")
 async def generate_qr(data: str = Form(...), logo: UploadFile = None):
-    print("QR request ontvangen")
     try:
         qr = qrcode.QRCode(
             error_correction=qrcode.constants.ERROR_CORRECT_H,
@@ -85,11 +84,11 @@ async def generate_qr(data: str = Form(...), logo: UploadFile = None):
         # Watermerk toevoegen
         draw = ImageDraw.Draw(new_img)
         try:
-            font = ImageFont.truetype("Times New Roman", 22)
+            font = ImageFont.truetype("Roboto", 22)
         except IOError:
             font = ImageFont.load_default()
 
-        text = "zosiuc.dev"
+        text = "Zosiuc Software"
         bbox = draw.textbbox((0, 0), text, font=font)
         text_width = bbox[2] - bbox[0]
         text_height = bbox[3] - bbox[1]
@@ -102,7 +101,7 @@ async def generate_qr(data: str = Form(...), logo: UploadFile = None):
         new_img.save(filename)
 
         respons = FileResponse(filename, media_type="image/png", filename="qr-code.png")
-        respons.headers["Access-Control-Allow-Origin"] = "https://zos-g.vercel.app"
+        respons.headers["Access-Control-Allow-Origin"] = "https://zosg.zosiuc.dev"
         return respons
     except Exception as e:
         print(e)
