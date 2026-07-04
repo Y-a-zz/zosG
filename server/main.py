@@ -13,10 +13,10 @@ app.add_middleware(
 
     CORSMiddleware,
     allow_origins=[
+        "https://zosg.zosiuc.dev"
         "http://localhost:5173",
         "https://zos-g-git-main-zodiucs-projects.vercel.app",
         "https://zos-nb2nfek2j-zodiucs-projects.vercel.app",
-        "https://zosg.zosiuc.dev"
     ],
     allow_credentials=True,
     allow_methods=["POST", "GET"],

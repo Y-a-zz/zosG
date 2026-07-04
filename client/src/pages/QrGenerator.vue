@@ -2,7 +2,7 @@
 import {ref} from 'vue'
 import axios from 'axios'
 import {useI18n} from 'vue-i18n'
-import event  from '@vercel/analytics'
+import event from '@vercel/analytics'
 
 const {t} = useI18n()
 
@@ -50,16 +50,18 @@ async function generateQr() {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.response) {
-        msg.value = error.response.data
+        const blob = error.response.data
+
+        msg.value = await blob.text()
       } else {
         msg.value = `Verbindingsfout: ${error.message}`
       }
     } else {
       msg.value = `Er is een onbekende fout opgetreden.`
+
     }
   } finally {
     wait.value = false
-
   }
 }
 
