@@ -68,9 +68,9 @@ async function generateQr() {
 </script>
 
 <template>
-  <div class="flex flex-col  w-[100vw] min-h-lvh py-40  items-center   text-center bg-gradient-to-b from-blue-200 via-white to-blue-50">
+  <div class="flex flex-col  w-[100vw] min-h-lvh pb-[250px] items-center   text-center bg-gradient-to-b from-blue-200 via-white to-blue-50">
     <div
-        class=" max-h-lvh p-6 flex flex-col items-center justify-center  bg-white/25 backdrop-blur-xl">
+        class=" max-h-lvh p-6 pt-[190px] flex flex-col items-center justify-center  bg-white/25 backdrop-blur-xl">
       <h1 class="text-2xl font-bold mb-4">{{t('title')}}</h1>
       <form @submit.prevent="generateQr" class="flex flex-col j gap-10 space-y-4 w-full max-w-sm">
         <input

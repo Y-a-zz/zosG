@@ -18,7 +18,7 @@ watch(locale, (newLocale) => {
 </script>
 <template >
 
-  <div class=" ">
+  <div>
 
     <nav class=" z-10 p-4 px-6 flex justify-between fixed top-0 left-0 w-full h-18 z-1000 bg-white/25 backdrop-blur-xl  gap-6">
       <div class="flex gap-6 items-center justify-center">
@@ -38,7 +38,7 @@ watch(locale, (newLocale) => {
 
     <router-view />
 
-    <footer class="z-1000 bg-white/25 backdrop-blur-xl py-2   h-30 lg:h-10  w-full flex flex-col lg:flex-row justify-center items-center gap-1">
+    <footer class="fixed bottom-0 left-0 z-1000 bg-white/25 backdrop-blur-xl py-2   h-30 lg:h-10  w-full flex flex-col lg:flex-row justify-center items-center gap-1">
 
       <a href="https://zosiuc.dev" target="_blank" class="text-sky-800 text-2xl lg:text-lg flex justify-center items-center  flex-col lg:flex-row gap-1 lg:absolute left-10  bottom-0">
         <strong class="-ml-10 lg:ml-0"><i>{{t('Powered-by')}}</i></strong>
@@ -68,7 +68,7 @@ watch(locale, (newLocale) => {
         </a>
       </div>
       <div>
-        <p class="items-center" >© {{year}} {{t('copyR')}}</p>
+        <p class="items-center">© {{year}} Zosiuc. {{t('copyR')}}</p>
       </div>
     </footer>
   </div>

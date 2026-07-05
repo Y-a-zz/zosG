@@ -21,8 +21,10 @@
   "download": "Download",
   "waiting": "wait please ... ",
   "Powered-by": "Powered by",
-  "copyR": "© 2025 Zosiuc. All rights reserved.",
+  "copyR": "All rights reserved.",
   "english":"English",
   "dutch": "Dutch",
-  "arabic": "Arabic"
+  "arabic": "Arabic",
+  "notFoundTitle": "Not Found",
+  "notFoundText": "Page doesn't exist"
 }

@@ -21,8 +21,10 @@
   "download": "Download",
   "waiting": "Even geduld aub ... ",
   "Powered-by": "Powered by",
-  "copyR": "© 2025 Zosiuc. Alle rechten voorbehouden.",
+  "copyR": "Alle rechten voorbehouden.",
   "english": "Engels - English",
   "dutch": "Nederlands - Dutch",
-  "arabic": "Arabisch - Arabic"
+  "arabic": "Arabisch - Arabic",
+  "notFoundTitle": "Niet Gevonden",
+  "notFoundText": "Pagina bestaat niet"
 }

@@ -21,8 +21,10 @@
   "download": "تنزبل",
   "waiting": "يرجى الانتظار ...",
   "Powered-by": "بدعم من",
-  "copyR": "© 2025 Zosiuc. جميع الحقوق محفوظة.",
+  "copyR": "جميع الحقوق محفوظة.",
   "english": "الإنجليزية - English",
   "dutch": "الهولندية - Dutch",
-  "arabic": "العربية - Arabic"
+  "arabic": "العربية - Arabic",
+  "notFoundTitle": "غير متوفر",
+  "notFoundText": "الصفحة غير مجودة"
 }
